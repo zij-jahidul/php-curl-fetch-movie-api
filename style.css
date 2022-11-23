@@ -1,0 +1,58 @@
+/* h1 {
+    color: aqua;
+}
+
+.navbar-nav {
+    margin-left: 30rem;
+}
+
+.nav-item {
+    margin-left: 3rem;
+}
+*/
+
+.logo {
+    height: 3rem;
+}
+
+
+/*
+.navbar-brand {
+    margin-left: 8rem;
+}
+
+*/
+
+.search_section {
+    width: 100%;
+    padding: 0 7%;
+    display: table;
+    margin: 0 auto;
+    max-width: none;
+   
+    height: 30rem;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+}
+
+.search {
+    margin-top: 10rem;
+}
+
+.search_btn {
+    width: 40%;
+}
+
+.card {
+    width: 18rem;
+}
+
+.searh_title,
+.adult {
+    color: aliceblue;
+}
+
+.adult_val {
+    color: aliceblue;
+}
