@@ -10,8 +10,8 @@ include('db.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>VMware Job Test</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@ include('db.php');
         </div>
     </nav>
 
-    <div id="main_div" style="background-image: url('./image/bg2.jpg');">
+    <div id="main_div" style="background-image: url('./image/bg2.jpg'); margin: 0 auto; ">
 
         <div class="search_section">
             <div class="container">
@@ -102,35 +102,33 @@ include('db.php');
                         <form class="form-inline search" method="POST">
                             <h2 class="searh_title text-white" style="font-size:48px; font-weight: 600; ">Search Your favorite Movie</h2>
                             <br>
-                            <input class="form-control mr-2 value py-3" type="text" name="search_value" id="search_value" placeholder="Search Your faveriod Movie" aria-label="Search" onkeyup="search()">
+                            <input class="form-control mr-2 value py-3" type="text" name="search_value" id="search_value" placeholder="Search Your faveriod Movie" aria-label="Search" onkeyup="search()" value="<?php if (isset($_POST['search_value'])) {
+                                                                                                                                                                                                                        echo $_POST['search_value'];
+                                                                                                                                                                                                                    } ?>">
                         </form>
                     </div>
                 </center>
             </div>
         </div>
-        <br>
 
         <div class="movie_list">
             <div class="container text-center">
 
-                <div class="row" id="all-card">
+                <div class="row justify-content-center" id="all-card">
                     <?php
                     foreach ($obj->results as $key => $value) {
                     ?>
 
                         <div class="col my-3">
-                            <div class="card">
-                                <img src="https://image.tmdb.org/t/p/original/.<?php echo $value->poster_path ?>" class="card-img-top" alt="...">
+                            <div class="card" style="height: 450px; margin: 0 auto;">
+                                <img src="https://image.tmdb.org/t/p/original/.<?php echo $value->poster_path ?>" class="card-img-top" alt="..." style="height: 300px" />
                                 <div class="card-body">
-                                    <h5 class="card-title" id="name"> <?php echo $value->title ?> </h5>
-                                    <p class="card-text">
-                                    <ul style="list-style: none;">
+                                    <h5 class="card-title m-0 p-0" id="name"> <?php echo $value->title ?> </h5>
 
+                                    <ul style="list-style: none;" class="m-0 p-0">
                                         <li>Year of the Movie: <?php echo substr($value->release_date, 0, 4)  ?></li> <br />
-
                                     </ul>
 
-                                    </p>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailsModel<?php echo  $value->id ?>">
                                         Details
                                     </button>
